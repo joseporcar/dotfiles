@@ -51,11 +51,12 @@ in
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
 
-      # decoration = {
-
-      #   blur = {
-      #   };
-      # };
+      decoration = {
+        blur = {
+          popups = true;
+          size = 3;
+        };
+      };
       exec-once = [
         "kitty"
       ];
@@ -85,9 +86,10 @@ in
         };
       };
 
-      # layerrule = [
-      #   "blur, rofi"
-      # ];
+      layerrule = [
+        "blur, rofi"
+        "ignorezero, rofi"
+      ];
 
       # misc = {
       # };
@@ -106,9 +108,9 @@ in
       ];
 
       ## LAPTOP POWER MANAGEMENT ##
-      decoration.blur.enabled = false;
-      decoration.drop_shadow = false;
-      misc.vfr = true;
+      # decoration.blur.enabled = false;
+      # decoration.drop_shadow = false;
+      # misc.vfr = true;
     };
   };  
 }

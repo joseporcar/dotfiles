@@ -14,7 +14,7 @@ in
 
     theme = {
       "*" = {
-        background-color = mkLiteral "#00000000";
+        background-color = mkLiteral "#00000001";
         text-color = txt;
       };
       "configuration" = {
@@ -30,7 +30,8 @@ in
           # border = mkLiteral "2px";
           # border-color = accent;
           border-radius = mkLiteral "10px";
-          width = mkLiteral "300px";
+          # width = mkLiteral "300px";
+          fullscreen = true;
           anchor = "center";
           x-offset = 0;
           y-offset = 0;
@@ -66,9 +67,12 @@ in
 
 
       "listview" = {
+        # background-color = mkLiteral "#00000001";
+
         border-radius = mkLiteral "10px";
         border = mkLiteral "1px";
         border-color = accent;
+
         columns = 1;
         lines = 7;
         spacing = mkLiteral "4px";
@@ -81,6 +85,7 @@ in
           children = [ "inputbar" "listview" ];
           spacing = mkLiteral "15px";
           padding = mkLiteral "15px";
+          margin = mkLiteral "30% 40% 31% 40%";
       };
 
       "element" = {
