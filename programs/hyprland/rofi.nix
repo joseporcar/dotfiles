@@ -1,11 +1,10 @@
 { pkgs, config, lib, ... }:
 let 
   inherit (config.lib.formats.rasi) mkLiteral;
-  # this is the accent color. its lavender
-  accent = mkLiteral "#${config.lib.stylix.colors.base0D}a0"; 
-  bg = mkLiteral "#${config.lib.stylix.colors.base01}90";
-  txt = mkLiteral "#${config.lib.stylix.colors.base05}ff";
-  txt_accent = mkLiteral "#${config.lib.stylix.colors.base06}ff";
+
+  accent = mkLiteral "#${config.lib.stylix.colors.base0E}ff"; 
+  txt = mkLiteral "#${config.lib.stylix.colors.base0D}ff";
+  txt_accent = mkLiteral "#${config.lib.stylix.colors.base0E}ff";
 in
 {
   programs.rofi = {
@@ -19,28 +18,26 @@ in
         text-color = txt;
       };
       "configuration" = {
-        show-icons = true;
         display-drun = "⬤";
-        drun-display-format = "{icon} {name}";
+        drun-display-format = "{name}";
         disable-history = false;
         click-to-exit = true;
         location = 0;
       };
 
       "window" = {
-          background-color = bg;
           transparency = "real";
-          border = mkLiteral "2px";
-          border-color = accent;
+          # border = mkLiteral "2px";
+          # border-color = accent;
           border-radius = mkLiteral "10px";
-          width = mkLiteral "500px";
+          width = mkLiteral "300px";
           anchor = "center";
           x-offset = 0;
           y-offset = 0;
       };
 
       "entry" = {
-          # placeholder-color = @FG;
+          enabled = false;
           expand = true;
           horizontal-align = 0;
           placeholder = "Search...";
@@ -53,11 +50,11 @@ in
       };
 
       "inputbar" = {
+        enabled = false;
         children = [ "entry" ];
           expand = false;
           border = mkLiteral "0px 0px 0px 0px";
           border-radius = mkLiteral "0px";
-          # border-color = @BDR; 
           margin = mkLiteral "0px 0px 0px 0px";
           padding = mkLiteral "0px";
           position = mkLiteral "center";
@@ -69,12 +66,15 @@ in
 
 
       "listview" = {
-          columns = 1;
-          lines = 7;
-          spacing = mkLiteral "4px";
-          cycle = true;
-          dynamic = true;
-          layout = mkLiteral "vertical";
+        border-radius = mkLiteral "10px";
+        border = mkLiteral "1px";
+        border-color = accent;
+        columns = 1;
+        lines = 7;
+        spacing = mkLiteral "4px";
+        cycle = true;
+        dynamic = true;
+        layout = mkLiteral "vertical";
       };
 
       "mainbox" = {
@@ -85,16 +85,16 @@ in
 
       "element" = {
           orientation = mkLiteral "horizontal";
-          border-radius = mkLiteral "4px";
+          border-radius = mkLiteral "10px";
           padding = mkLiteral "6px 6px 6px 6px";
       };
 
-      "element-icon" = {
-          horizontal-align = mkLiteral "0.5";
-          vertical-align = mkLiteral "0.5";
-          size = mkLiteral "24px";
-          border = mkLiteral "0px";
-      };
+      # "element-icon" = {
+      #     horizontal-align = mkLiteral "0.5";
+      #     vertical-align = mkLiteral "0.5";
+      #     size = mkLiteral "24px";
+      #     border = mkLiteral "0px";
+      # };
 
       # "element-text" = {
       #     text-color = txt;
@@ -105,13 +105,14 @@ in
       # };
 
       "element selected" = {
-          background-color = accent;
+          # background-color = accent;
           text-color = txt_accent;
           border = mkLiteral "0px 0px 0px 0px";
           border-radius = mkLiteral "10px";
       };
       "element-text" = {
         text-color = mkLiteral "inherit";
+        horizontal-align = mkLiteral "0.5";
       };
     };
   };
