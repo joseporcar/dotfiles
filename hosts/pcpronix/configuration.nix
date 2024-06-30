@@ -18,7 +18,7 @@
 
   stylix = {
     enable = true;
-    image = ./../../wallpapers/default.jpg;
+    image = ./../../wallpapers/black.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     cursor = {
       package = pkgs.catppuccin-cursors.macchiatoRosewater;
@@ -41,7 +41,6 @@
   environment.systemPackages = with pkgs; [
     nix-output-monitor
     nvd
-
   ];
 
   ## LAPTOP POWER MANAGEMENT ##
@@ -58,7 +57,6 @@
   boot.loader.grub = {
     enable = true;
     device = "nodev";
-    useOSProber = true;
     efiSupport = true;
   };
   # boot.loader.systemd-boot.enable = true;
