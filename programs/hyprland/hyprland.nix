@@ -54,8 +54,9 @@ in
       decoration = {
         blur = {
           popups = true;
-          size = 2;
-          contrast = 2;
+          size = 3;
+          passes = 2;
+          xray = true;
         };
       };
       exec-once = [
@@ -90,6 +91,7 @@ in
       layerrule = [
         "blur, rofi"
         "ignorezero, rofi"
+        "xray 0, rofi"
       ];
 
       # misc = {

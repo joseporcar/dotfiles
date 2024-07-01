@@ -2,6 +2,7 @@
 let 
   inherit (config.lib.formats.rasi) mkLiteral;
 
+  bg = mkLiteral "#${config.lib.stylix.colors.base01}80";
   accent = mkLiteral "#${config.lib.stylix.colors.base0E}ff"; 
   txt = mkLiteral "#${config.lib.stylix.colors.base0D}ff";
   txt_accent = mkLiteral "#${config.lib.stylix.colors.base0E}ff";
@@ -61,13 +62,12 @@ in
           position = mkLiteral "center";
       };
 
-      "case-indicator" = {
-          spacing = 0;
-      };
-
+      # "case-indicator" = {
+      #     spacing = 0;
+      # };
 
       "listview" = {
-        background-color = mkLiteral "#00000050";
+        background-color = bg;
 
         border-radius = mkLiteral "10px";
         border = mkLiteral "1px";
@@ -85,7 +85,7 @@ in
           children = [ "inputbar" "listview" ];
           spacing = mkLiteral "15px";
           padding = mkLiteral "15px";
-          margin = mkLiteral "30% 40% 31% 40%";
+          margin = mkLiteral "30.5% calc(50% - 20ch)";
       };
 
       "element" = {
