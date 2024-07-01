@@ -67,7 +67,7 @@ in
 
 
       "listview" = {
-        # background-color = mkLiteral "#00000001";
+        background-color = mkLiteral "#00000050";
 
         border-radius = mkLiteral "10px";
         border = mkLiteral "1px";

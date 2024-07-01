@@ -54,7 +54,8 @@ in
       decoration = {
         blur = {
           popups = true;
-          size = 3;
+          size = 2;
+          contrast = 2;
         };
       };
       exec-once = [
