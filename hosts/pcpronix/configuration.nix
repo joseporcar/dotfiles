@@ -18,7 +18,7 @@
 
   stylix = {
     enable = true;
-    image = ./../../wallpapers/black.jpg;
+    image = ./../../wallpapers/default.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     cursor = {
       package = pkgs.catppuccin-cursors.macchiatoRosewater;
