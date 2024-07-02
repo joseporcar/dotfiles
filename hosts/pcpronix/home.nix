@@ -3,7 +3,7 @@
 {
   imports = 
   [
-    ./../../programs/default-programs.nix
+    ./../../programs/user/default-programs.nix
     ./../../programs/hyprland/hyprland.nix
   ];
 

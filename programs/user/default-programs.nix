@@ -3,6 +3,7 @@
   imports = [
     ./kitty.nix
   ];
+  
   home.packages = [
     pkgs.whatsapp-for-linux
   ];
@@ -18,11 +19,6 @@
   programs.fastfetch = {
     enable = true;
   };
-
-  programs.fish = {
-    enable = true;
-  };
-
 
   programs.git = {
     enable = true;

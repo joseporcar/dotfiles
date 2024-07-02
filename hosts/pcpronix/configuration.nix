@@ -9,11 +9,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./../../programs/hyprland/hyprland-sys.nix
+      ./../../programs/system/default-programs.nix
       inputs.home-manager.nixosModules.default
     ];
-  
-  programs.hyprland.enable = true; 
-  programs.hyprland.package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   stylix = {
@@ -31,11 +30,6 @@
         name = "JetBrains Mono";
       };
     };
-  };
-
-  programs.nh = {
-    enable = true;
-    flake = /home/pcpronix/nixos;
   };
 
   environment.systemPackages = with pkgs; [
@@ -132,14 +126,6 @@
     shell = pkgs.fish;
   };
 
-  programs.light = {
-    enable = true;
-    brightnessKeys = {
-      enable = true;
-      step = 5;
-    };
-  };
-
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
@@ -153,15 +139,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
