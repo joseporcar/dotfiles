@@ -129,9 +129,7 @@
     isNormalUser = true;
     description = "Jose Porcar";
     extraGroups = [ "networkmanager" "wheel" "video" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    shell = pkgs.fish;
   };
 
   programs.light = {
