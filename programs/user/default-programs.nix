@@ -2,8 +2,10 @@
 {
   imports = [
     ./kitty.nix
+    ./fish.nix
+    ./git.nix
   ];
-  
+
   home.packages = [
     pkgs.whatsapp-for-linux
   ];
@@ -18,14 +20,5 @@
 
   programs.fastfetch = {
     enable = true;
-  };
-
-  programs.git = {
-    enable = true;
-    userName  = "joseporcar";
-    userEmail = "joseaporcar@gmail.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-    };
   };
 }
