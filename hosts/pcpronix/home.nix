@@ -11,6 +11,7 @@
     targets.vscode.enable = false;
     targets.kitty.enable = false;
     targets.rofi.enable = false;
+    targets.fish.enable = false;
   };
       
   gtk = {
@@ -20,10 +21,10 @@
     gtk4.extraConfig = {gtk-theme-name = "catppuccin-macchiato";};
   };
 
-  # qt = {
-  #   enable = true;
-  #   platformTheme.name = "gtk";
-  # };
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+  };
 
 # Home Manager needs a bit of information about you and the paths it should
   # manage.
