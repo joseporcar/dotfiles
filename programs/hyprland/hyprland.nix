@@ -52,16 +52,20 @@ in
       ];
 
       decoration = {
+        rounding = 10;
+        
         blur = {
           popups = true;
           size = 3;
           passes = 2;
           xray = true;
+
+          ignore_opacity = false;
         };
       };
-      exec-once = [
-        "kitty"
-      ];
+
+      # exec-once = [
+      # ];
       
       general = {
         gaps_out = 5;
@@ -108,6 +112,8 @@ in
         "pin, class:(Rofi)"
         "forceinput, class:(Rofi)"
         
+        # kitty
+        # "opacity 1 0.7 class:(kitty)"
       ];
 
       ## LAPTOP POWER MANAGEMENT ##
