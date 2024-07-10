@@ -38,6 +38,12 @@ in
       fish_prompt = {
         body = ''string join "" -- (set_color ${teal}) (prompt_pwd -D 2) (set_color ${flamingo})" >> "'';
       };
+      fish_greeting = {
+        body = ''
+          echo "Hey there $(set_color ${flamingo})$hostname $(set_color ${text})"
+          echo "It's $(set_color ${blue}; date +%T)$(set_color ${text}), feeling productive?"
+          '';
+      };
     };
 
     # I got the base from this from https://github.com/catppuccin/fish/blob/main/themes/Catppuccin%20Macchiato.theme
