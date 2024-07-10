@@ -17,6 +17,8 @@
 
   stylix = {
     enable = true;
+    # Wallpapers: 
+    # forest = https://wallpapersden.com/minimal-hd-landscape-wallpaper/
     image = ./../../wallpapers/forest.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     cursor = {
@@ -35,6 +37,7 @@
   environment.systemPackages = with pkgs; [
     nix-output-monitor
     nvd
+    grc
   ];
 
   ## LAPTOP POWER MANAGEMENT ##
@@ -104,6 +107,7 @@
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
+  hardware.opengl.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
