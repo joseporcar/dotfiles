@@ -9,6 +9,8 @@ in
     ./rofi.nix
     ./waybar.nix
   ];
+  services.swaync.enable = true;
+  
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
