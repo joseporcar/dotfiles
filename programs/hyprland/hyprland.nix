@@ -9,7 +9,7 @@ in
     ./rofi.nix
     ./waybar.nix
   ];
-  
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -30,6 +30,7 @@ in
         # Execute
         "SUPER, T, exec, ${terminal}"
         "SUPER, F, exec, ${file-manager}"
+        "SUPER, B, exec, ${browser}"
 
         # Basics
         "SUPER, Q, killactive"
@@ -60,7 +61,6 @@ in
         "SUPER+SHIFT, S, movetoworkspace, special"
         "SUPER+SHIFT, S, submap, special"
         "SUPER+SHIFT+ALT, S, movetoworkspacesilent, special"
-
 
       ];
       bindel = [
