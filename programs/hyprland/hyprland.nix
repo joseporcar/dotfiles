@@ -14,12 +14,21 @@ in
     enable = true;
     systemd.enable = true;
     systemd.enableXdgAutostart = true;  
+
+    extraConfig = ''
+      # Special workspace config
+      submap = special
+      bind = SUPER+SHIFT, S, movetoworkspace, -0
+      bind = SUPER+SHIFT, S, submap, reset
+      bind = SUPER, S, togglespecialworkspace
+      bind = SUPER, S, submap, reset
+      submap = reset
+    '';
     
     settings = {
       bind = [
         # Execute
         "SUPER, T, exec, ${terminal}"
-        "SUPER, W, exec, ${browser}"
         "SUPER, F, exec, ${file-manager}"
 
         # Basics
@@ -47,7 +56,12 @@ in
 
         # Special
         "SUPER, S, togglespecialworkspace"
-        "SUPER+SHIFT, S, movetoworkspacesilent, special"
+        "SUPER, S, submap, special" # The submap is defined in extraconfig
+        "SUPER+SHIFT, S, movetoworkspace, special"
+        "SUPER+SHIFT, S, submap, special"
+        "SUPER+SHIFT+ALT, S, movetoworkspacesilent, special"
+
+
       ];
       bindel = [
         # Audio keys
