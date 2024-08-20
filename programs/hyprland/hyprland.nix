@@ -9,7 +9,6 @@ in
     ./rofi.nix
     ./waybar.nix
   ];
-  services.swaync.enable = true;
   
   wayland.windowManager.hyprland = {
     enable = true;
@@ -45,6 +44,10 @@ in
         "SUPER+SHIFT, Right, movetoworkspace, +1"
         "SUPER+SHIFT+ALT, Left, movetoworkspacesilent, -1"
         "SUPER+SHIFT+ALT, Right, movetoworkspacesilent, +1"
+
+        # Special
+        "SUPER, S, togglespecialworkspace"
+        "SUPER+SHIFT, S, movetoworkspacesilent, special"
       ];
       bindel = [
         # Audio keys
