@@ -9,6 +9,7 @@ in
   imports = [
     ./rofi.nix
     ./waybar.nix
+    ./programs.nix
   ];
 
   wayland.windowManager.hyprland = {
