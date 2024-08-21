@@ -17,5 +17,8 @@
       flake = /home/pcpronix/nixos;
     };
   };
+  home-manager.users.pcpronix.home.packages = [
+    pkgs.resources
+  ];
 
 }
