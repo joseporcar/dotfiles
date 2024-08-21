@@ -32,6 +32,17 @@ in
         # Basics
         "SUPER, Q, killactive"
 
+        # Screenshot @ clipboard
+        ", Print, exec, hyprshot -m region -z --clipboard-only"
+        "Shift, Print, exec, hyprshot -m active -m window -z --clipboard-only"
+        "Control, Print, exec, hyprshot -m active -m output -z --clipboard-only"
+
+        # Screenshot @ file
+        "SUPER, Print, exec, hyprshot -m region -o ~/Pictures/Screenshots/ -z"
+        "SUPER+Shift, Print, exec, hyprshot -m active -m window -o ~/Pictures/Screenshots/ -z"
+        "SUPER+Control, Print, exec, hyprshot -m active -m output -o ~/Pictures/Screenshots/ -z"
+        # Named (todo)
+        # "ALT, Print, exec (something to ask for prompt and then put that in hyprshot)
       ];
       bindr = [
         # rofi
