@@ -8,10 +8,23 @@ let
   txt_accent = mkLiteral "#${config.lib.stylix.colors.base0E}ff";
 in
 {
+  nixpkgs.overlays = [(final: prev: {
+    rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+    rofi-emoji = prev.rofi-emoji.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+  })];
+
   programs.rofi = {
     enable = true;
     cycle = true;
+
+    extraConfig = {
+      modi = "drun,calc,emoji,window,run";
+    };
     package = pkgs.rofi-wayland;
+    plugins = [      
+      pkgs.rofi-calc
+      pkgs.rofi-emoji
+    ];
 
     theme = {
       "*" = {
@@ -39,12 +52,12 @@ in
       };
 
       "entry" = {
-          enabled = false;
+          enabled = true;
           expand = true;
           horizontal-align = 0;
           placeholder = "Search...";
           blink = true;
-          border = mkLiteral "0px 0px 2px 0px";
+          border = mkLiteral "1px 0px 1px 0px";
           border-color = accent;
           border-radius = mkLiteral "10px";
           padding = mkLiteral "8px";
@@ -52,7 +65,7 @@ in
       };
 
       "inputbar" = {
-        enabled = false;
+        enabled = true;
         children = [ "entry" ];
           expand = false;
           border = mkLiteral "0px 0px 0px 0px";
@@ -83,9 +96,9 @@ in
 
       "mainbox" = {
           children = [ "inputbar" "listview" ];
-          spacing = mkLiteral "15px";
+          spacing = mkLiteral "5px";
           padding = mkLiteral "15px";
-          margin = mkLiteral "30.5% calc(50% - 20ch)";
+          margin = mkLiteral "29.5% calc(50% - 20ch)";
       };
 
       "element" = {

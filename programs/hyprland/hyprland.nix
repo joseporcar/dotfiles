@@ -26,6 +26,8 @@ in
         "SUPER, T, exec, ${terminal}"
         "SUPER, F, exec, ${file-manager}"
         "SUPER, B, exec, ${browser}"
+        "SUPER, period, exec, pkill rofi || rofi -show emoji"
+        "SUPER, C, exec, pkill rofi || rofi -show calc"
 
         # Basics
         "SUPER, Q, killactive"
