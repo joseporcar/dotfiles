@@ -17,15 +17,8 @@ in
     systemd.enable = true;
     systemd.enableXdgAutostart = true;  
 
-    extraConfig = ''
-      # Special workspace config
-      submap = special
-      bind = SUPER+SHIFT, S, movetoworkspace, -0
-      bind = SUPER+SHIFT, S, submap, reset
-      bind = SUPER, S, togglespecialworkspace
-      bind = SUPER, S, submap, reset
-      submap = reset
-    '';
+    # extraConfig = ''
+    # '';
     
     settings = {
       bind = [
@@ -59,10 +52,9 @@ in
 
         # Special
         "SUPER, S, togglespecialworkspace"
-        "SUPER, S, submap, special" # The submap is defined in extraconfig
         "SUPER+SHIFT, S, movetoworkspace, special"
-        "SUPER+SHIFT, S, submap, special"
         "SUPER+SHIFT+ALT, S, movetoworkspacesilent, special"
+        "SUPER+SHIFT, backspace, movetoworkspace, -0" # Intended only for removing a misplaced window from special
 
         # Whatsapp
         "Super, W, togglespecialworkspace, whatsapp"
