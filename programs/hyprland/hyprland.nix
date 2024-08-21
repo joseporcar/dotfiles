@@ -3,6 +3,7 @@ let
   browser = "firefox";
   terminal = "kitty";
   file-manager = "nautilus";
+  startupScript = import ./startup.nix {inherit pkgs;};
 in
 {
   imports = [
@@ -62,6 +63,8 @@ in
         "SUPER+SHIFT, S, submap, special"
         "SUPER+SHIFT+ALT, S, movetoworkspacesilent, special"
 
+        # Whatsapp
+        "Super, W, togglespecialworkspace, whatsapp"
       ];
       bindel = [
         # Audio keys
@@ -83,8 +86,9 @@ in
         };
       };
 
-      # exec-once = [
-      # ];
+      exec-once = [
+        "${startupScript}/bin/startup"
+      ];
       
       general = {
         gaps_out = 5;
