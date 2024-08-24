@@ -1,4 +1,5 @@
 { pkgs }:
 pkgs.writeShellScriptBin "startup" ''
-  whatsapp-for-linux 
+  whatsapp-for-linux
+  firefox 
 ''
