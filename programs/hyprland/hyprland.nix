@@ -137,7 +137,6 @@ in
       windowrulev2 = [
         # rofi
         "pin, class:(Rofi)"
-        "forceinput, class:(Rofi)"
 
         "workspace special:whatsapp silent, class:(whatsapp-for-linux)"
         
