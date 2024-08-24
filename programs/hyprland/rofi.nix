@@ -8,23 +8,14 @@ let
   txt_accent = mkLiteral "#${config.lib.stylix.colors.base0E}ff";
 in
 {
-  nixpkgs.overlays = [(final: prev: {
-    rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
-    rofi-emoji = prev.rofi-emoji.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
-  })];
-
   programs.rofi = {
     enable = true;
     cycle = true;
 
     extraConfig = {
-      modi = "drun,calc,emoji,window,run";
+      modi = "drun,window,run";
     };
     package = pkgs.rofi-wayland;
-    plugins = [      
-      pkgs.rofi-calc
-      pkgs.rofi-emoji
-    ];
 
     theme = {
       "*" = {
@@ -62,17 +53,18 @@ in
           border-radius = mkLiteral "10px";
           padding = mkLiteral "8px";
           text-color = txt_accent;
+          background-color = bg;
       };
 
       "inputbar" = {
         enabled = true;
         children = [ "entry" ];
-          expand = false;
-          border = mkLiteral "0px 0px 0px 0px";
-          border-radius = mkLiteral "0px";
-          margin = mkLiteral "0px 0px 0px 0px";
-          padding = mkLiteral "0px";
-          position = mkLiteral "center";
+        expand = false;
+        border = mkLiteral "0px 0px 0px 0px";
+        border-radius = mkLiteral "0px";
+        margin = mkLiteral "0px 0px 0px 0px";
+        padding = mkLiteral "0px";
+        position = mkLiteral "center";
       };
 
       # "case-indicator" = {
