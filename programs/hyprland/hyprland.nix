@@ -140,9 +140,11 @@ in
         # rofi
         "pin, class:(Rofi)"
         "forceinput, class:(Rofi)"
+
+        "workspace special:whatsapp silent, class:(whatsapp-for-linux)"
         
         # kitty
-        # "opacity 1 0.7 class:(kitty)"
+        # "noblur, class:(kitty)"
       ];
 
       ## LAPTOP POWER MANAGEMENT ##
