@@ -38,12 +38,27 @@
     nix-output-monitor
     nvd
     grc
+    powertop
   ];
 
   ## LAPTOP POWER MANAGEMENT ##
+  powerManagement.enable = true;
   services.power-profiles-daemon.enable = false;
+  # powerManagement.cpuFreqGovernor = "powersave";
   services.tlp = {
     enable = true;
+    # TODO battery care features https://linrunner.de/tlp/settings/battery.html
+    # https://linrunner.de/tlp/settings/bc-vendors.html
+
+    # TODO doesnt switch to batery when unplugged
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC="performance";
+      CPU_ENERGY_PERF_POLICY_ON_AC="performance";
+      PLATFORM_PROFILE_ON_AC="performance";
+  
+      CPU_ENERGY_PERF_POLICY_ON_BAT="power";
+      PLATFORM_PROFILE_ON_BAT="low-power";
+    };
   };
 
   environment.sessionVariables = {
@@ -107,7 +122,7 @@
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
