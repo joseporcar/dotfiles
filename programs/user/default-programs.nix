@@ -7,7 +7,7 @@
   ];
 
   home.packages = [
-    pkgs.whatsapp-for-linux
+    pkgs.zapzap
   ];
 
   programs.firefox = {

@@ -138,8 +138,7 @@ in
         # rofi
         "pin, class:(Rofi)"
 
-        "workspace special:whatsapp silent, class:(whatsapp-for-linux)"
-        
+        "workspace special:whatsapp silent, class:(com.rtosta.zapzap)"        
         # kitty
         # "noblur, class:(kitty)"
       ];
