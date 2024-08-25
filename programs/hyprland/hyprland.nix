@@ -62,10 +62,10 @@ in
         "SUPER+SHIFT+ALT, Right, movetoworkspacesilent, +1"
 
         # Special
-        "SUPER, S, togglespecialworkspace"
-        "SUPER+SHIFT, S, movetoworkspace, special"
-        "SUPER+SHIFT+ALT, S, movetoworkspacesilent, special"
-        "SUPER+SHIFT, backspace, movetoworkspace, -0" # Intended only for removing a misplaced window from special
+        "SUPER, E, togglespecialworkspace"
+        "SUPER+SHIFT, U, movetoworkspace, special"
+        "SUPER+SHIFT+ALT, U, movetoworkspacesilent, special"
+        "SUPER+SHIFT, E, movetoworkspace, -0" 
 
         # Whatsapp
         "Super, W, togglespecialworkspace, whatsapp"
