@@ -17,8 +17,14 @@
       flake = /home/pcpronix/nixos;
     };
   };
-  home-manager.users.pcpronix.home.packages = [
-    pkgs.resources
+  
+  environment.systemPackages = with pkgs; [
+    grc
+    nix-output-monitor
+    nvd
+    powertop
+    resources
   ];
+  
 
 }

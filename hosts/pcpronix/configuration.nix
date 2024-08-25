@@ -5,61 +5,16 @@
 { config, pkgs, inputs, ... }:
 
 {
-
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./../../programs/hyprland/hyprland-sys.nix
       ./../../programs/system/default-programs.nix
+      ./../../programs/system/power-management.nix
+      ./../../programs/system/stylix.nix
       inputs.home-manager.nixosModules.default
     ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  stylix = {
-    enable = true;
-    # Wallpapers: 
-    # forest = https://wallpapersden.com/minimal-hd-landscape-wallpaper/
-    image = ./../../wallpapers/forest.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-    cursor = {
-      package = pkgs.catppuccin-cursors.macchiatoRosewater;
-      name = "catppuccin-macchiato-rosewater-cursors";
-      size = 24;
-    };
-    fonts = {
-      monospace = {
-        package = pkgs.nerdfonts.override {fonts = [ "JetBrainsMono" ];};
-        name = "JetBrains Mono";
-      };
-    };
-  };
-
-  environment.systemPackages = with pkgs; [
-    nix-output-monitor
-    nvd
-    grc
-    powertop
-  ];
-
-  ## LAPTOP POWER MANAGEMENT ##
-  powerManagement.enable = true;
-  services.power-profiles-daemon.enable = false;
-  # powerManagement.cpuFreqGovernor = "powersave";
-  services.tlp = {
-    enable = true;
-    # TODO battery care features https://linrunner.de/tlp/settings/battery.html
-    # https://linrunner.de/tlp/settings/bc-vendors.html
-
-    # TODO doesnt switch to batery when unplugged
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC="performance";
-      CPU_ENERGY_PERF_POLICY_ON_AC="performance";
-      PLATFORM_PROFILE_ON_AC="performance";
-  
-      CPU_ENERGY_PERF_POLICY_ON_BAT="power";
-      PLATFORM_PROFILE_ON_BAT="low-power";
-    };
-  };
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
@@ -155,10 +110,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-
-
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
@@ -168,12 +119,6 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; #dont change
 
 }
