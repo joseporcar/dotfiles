@@ -12,6 +12,7 @@
     targets.kitty.enable = false;
     targets.rofi.enable = false;
     targets.fish.enable = false;
+    targets.waybar.enable = false;
   };
       
   gtk = {
