@@ -11,14 +11,23 @@ in
     ./waybar.nix
     ./programs.nix
   ];
-
+# TODO fullscreen functionality
+# TODO scroll functionality
+# TODO Hiding waybar
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
     systemd.enableXdgAutostart = true;  
 
-    # extraConfig = ''
-    # '';
+    extraConfig = ''
+      submap = resize 
+      binde = , N, splitratio, -0.1
+      binde = , I, splitratio, +0.1
+      binde = , U, splitratio, -0.1
+      binde = , E, splitratio, +0.1
+      bind = , catchall, submap, reset
+      submap = reset
+    '';
     
     settings = {
       bind = [
@@ -39,7 +48,7 @@ in
         "SUPER, Print, exec, hyprshot -m region -o ~/Pictures/Screenshots/ -z"
         "SUPER+Shift, Print, exec, hyprshot -m active -m window -o ~/Pictures/Screenshots/ -z"
         "SUPER+Control, Print, exec, hyprshot -m active -m output -o ~/Pictures/Screenshots/ -z"
-        # Named (todo)
+        # Named (TODO)
         # "ALT, Print, exec (something to ask for prompt and then put that in hyprshot)
       ];
       bindr = [
@@ -54,21 +63,31 @@ in
         "SUPER+SHIFT, I, movetoworkspace, +1"
         "SUPER+SHIFT+ALT, N, movetoworkspacesilent, -1"
         "SUPER+SHIFT+ALT, I, movetoworkspacesilent, +1"
-        "SUPER, Left, workspace, -1"
-        "SUPER, Right, workspace, +1"
-        "SUPER+SHIFT, Left, movetoworkspace, -1"
-        "SUPER+SHIFT, Right, movetoworkspace, +1"
-        "SUPER+SHIFT+ALT, Left, movetoworkspacesilent, -1"
-        "SUPER+SHIFT+ALT, Right, movetoworkspacesilent, +1"
 
         # Special
-        "SUPER, E, togglespecialworkspace"
-        "SUPER+SHIFT, U, movetoworkspace, special"
-        "SUPER+SHIFT+ALT, U, movetoworkspacesilent, special"
-        "SUPER+SHIFT, E, movetoworkspace, -0" 
+        "SUPER, S, togglespecialworkspace"
+        "SUPER+SHIFT, S, movetoworkspace, special"
+        "SUPER+SHIFT+ALT, S, movetoworkspacesilent, special"
+        "SUPER+SHIFT, R, movetoworkspace, -0" 
 
         # Whatsapp
         "Super, W, togglespecialworkspace, whatsapp"
+
+        # Resizing (submap in extraconfig)
+        "SUPER, O, submap, resize"
+
+        # Moving within workspace 
+        "SUPER+Control, N, movewindow, l"
+        "SUPER+Control, I, movewindow, r"
+        "SUPER+Control, U, movewindow, u"
+        "SUPER+Control, E, movewindow, d"
+
+        # Moving focus
+        "SUPER+ALT, N, movefocus, l"
+        "SUPER+ALT, I, movefocus, r"
+        "SUPER+ALT, U, movefocus, u"
+        "SUPER+ALT, E, movefocus, d"
+        
       ];
       bindel = [
         # Audio keys
@@ -88,6 +107,10 @@ in
 
           ignore_opacity = false;
         };
+      };
+
+      dwindle = {
+        smart_split = true;
       };
 
       exec-once = [
@@ -112,7 +135,7 @@ in
         "kb_variant" = "colemak_dh, altgr-intl";
         "kb_options" = "caps:backspace, grp:win_space_toggle, shift:both_capslock";
         "follow_mouse" = "1";
-        "sensitivity" = "0"; # -1.0 - 1.0, 0 means no modification.
+        "sensitivity" = "0";
         touchpad = {
             "natural_scroll" = "true";
             scroll_factor = 0.5;
@@ -146,7 +169,7 @@ in
       ## LAPTOP POWER MANAGEMENT ##
       # decoration.blur.enabled = false;
       # decoration.drop_shadow = false;
-      # misc.vfr = true;
+      misc.vfr = true;
     };
   };  
 }
