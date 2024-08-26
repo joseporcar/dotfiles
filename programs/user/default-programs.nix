@@ -8,6 +8,9 @@
 
   home.packages = [
     pkgs.zapzap
+
+    # ew TODO remove after phisics C
+    pkgs.google-chrome
   ];
 
   programs.firefox = {
