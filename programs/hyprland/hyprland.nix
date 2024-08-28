@@ -109,10 +109,6 @@ in
         };
       };
 
-      dwindle = {
-        smart_split = true;
-      };
-
       exec-once = [
         "${startupScript}/bin/startup"
       ];
