@@ -19,7 +19,7 @@
       CPU_SCALING_GOVERNOR_ON_BAT="powersave";
       PLATFORM_PROFILE_ON_BAT="cool";
 
-      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE="bluetooth wifi";
+      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE="bluetooth";
     };
   };
 }
