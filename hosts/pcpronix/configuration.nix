@@ -16,6 +16,8 @@
     ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest; 
+  
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
