@@ -8,6 +8,7 @@
 
   home.packages = [
     pkgs.zapzap
+    pkgs.floorp
   ];
 
   programs.firefox = {
