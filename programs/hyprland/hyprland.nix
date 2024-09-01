@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let 
-  browser = "firefox";
+  browser = "floorp";
   terminal = "kitty";
   file-manager = "nautilus";
   startupScript = import ./startup.nix {inherit pkgs;};
