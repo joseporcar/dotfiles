@@ -8,6 +8,7 @@ let
   txt_accent = mkLiteral "#${config.lib.stylix.colors.base0E}ff";
 in
 {
+  stylix.targets.rofi.enable = false;
   programs.rofi = {
     enable = true;
     cycle = true;

@@ -1,5 +1,8 @@
 { pkgs, inputs, ... }:
 {
+  imports = [
+    ./../../programs/system/stylix.nix
+  ];
   programs = {
     light = {
       enable = true;

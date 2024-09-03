@@ -20,6 +20,7 @@ let
   test = "000000";
 in
 {
+  stylix.targets.fish.enable = false;
   programs.fish = {
     enable = true;  
 

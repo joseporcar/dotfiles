@@ -3,6 +3,7 @@ let
   colors = config.lib.stylix.colors.withHashtag;
 in
 { 
+  stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
     systemd.enable = true;

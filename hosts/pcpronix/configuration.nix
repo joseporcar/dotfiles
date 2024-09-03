@@ -9,11 +9,11 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./../../programs/hyprland/hyprland-sys.nix
-      ./../../programs/system/default-programs.nix
+      ./../../programs/system/programs.nix
       ./../../programs/system/power-management.nix
-      ./../../programs/system/stylix.nix
       inputs.home-manager.nixosModules.default
     ];
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest; 

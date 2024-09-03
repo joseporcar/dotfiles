@@ -1,5 +1,6 @@
 { pkgs, inputs, config,... }:
 {
+  stylix.targets.kitty.enable = false;
   programs.kitty = {
     enable = true;
     font = {
