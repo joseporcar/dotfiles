@@ -1,8 +1,12 @@
-{ pkgs, ...}:
+{ pkgs, config, lib, ...}:
+let 
+  username = config.networking.hostName;
+in
 {
-  zirtualisation.libvirtd.enable = true;
+
+  virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
-  home.pcpronix.dconf.settings = {
+  home-manager.users.${username}.dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];
       uris = ["qemu:///system"];

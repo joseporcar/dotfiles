@@ -13,13 +13,16 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    
     };
+
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    zen-browser = {
+      url = "github:MarceColl/zen-browser-flake";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: 
@@ -41,5 +44,7 @@
         inputs.stylix.nixosModules.stylix
       ];
     };
+    devShells.x86_64-linux.default = 
+      
   };
 }

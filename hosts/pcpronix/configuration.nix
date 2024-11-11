@@ -11,6 +11,7 @@
       ./../../programs/hyprland/hyprland-sys.nix
       ./../../programs/system/programs.nix
       ./../../programs/system/power-management.nix
+      ./../../programs/system/virtual-machine.nix
       inputs.home-manager.nixosModules.default
     ];
 
